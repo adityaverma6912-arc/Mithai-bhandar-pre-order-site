@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <..!..> PAGE SETUP: Change the title, fonts, or stylesheet here. <..!..> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mithai Bhandar | Sweets, Chocolates & Snacks</title>
+
+  <!-- <..!..> FONTS: You can replace these Google Fonts if you want a different look. <..!..> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- <..!..> MAIN STYLESHEET. <..!..> -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- <..!..> EMAILJS: Required only for sending orders to the shopkeeper. <..!..> -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+  <!-- <..!..> HEADER / NAVIGATION: Change the shop name or cart button here. <..!..> -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="Mithai Bhandar home">
+        <span class="brand-mark">M</span>
+        <span>Mithai <span>Bhandar</span></span>
+      </a>
+
+      <nav class="site-links" aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#how">How it works</a>
+      </nav>
+
+      <button class="cart-btn" id="openCart" type="button" aria-label="Open shopping cart">
+        <span>🛒</span>
+        <span>Cart</span>
+        <b id="cartCount">0</b>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- <..!..> HERO SECTION: Main welcome message. <..!..> -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">A SWEET SPOT FOR EVERY OCCASION</div>
+          <h1>A little sweetness,<br><em>for every occasion.</em></h1>
+          <p>
+            Discover traditional mithai, cakes, chocolates and savoury favourites.
+            Pre-order in a few clicks, then pay when you collect.
+          </p>
+          <a class="primary-btn" href="#menu">Explore Menu <span>↓</span></a>
+
+          <div class="hero-highlights" aria-label="Ordering benefits">
+            <div><span aria-hidden="true">01</span><strong>Easy pre-order</strong></div>
+            <div><span aria-hidden="true">02</span><strong>Pay on pickup</strong></div>
+            <div><span aria-hidden="true">03</span><strong>Made for sharing</strong></div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <span class="hero-card-label">A LITTLE JOY, BOXED</span>
+          <div class="hero-emoji">🍬🍫</div>
+          <strong>Make every moment a little sweeter.</strong>
+          <span>Pick a favourite for yourself or something lovely to share.</span>
+          <div class="hero-mini">✓ Pay at the shop when you collect</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <..!..> MENU SECTION: Search, category filters, and all products appear here. <..!..> -->
+    <section class="container section" id="menu">
+      <div class="menu-heading">
+        <div>
+          <div class="eyebrow">OUR MENU</div>
+          <h2>Something for everyone</h2>
+          <p class="section-note">Search for an item or choose a category below.</p>
+        </div>
+
+        <!-- <..!..> SEARCH BAR: Search names, categories, descriptions, and units. <..!..> -->
+        <div class="search-wrap">
+          <span aria-hidden="true">🔎</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search gulab jamun, chocolate, samosa..."
+            autocomplete="off"
+            aria-label="Search menu"
+          >
+          <button id="clearSearch" type="button" aria-label="Clear search">×</button>
+        </div>
+      </div>
+
+      <!-- <..!..> CATEGORY BUTTONS: Add or remove categories here. Match data-category with script.js. <..!..> -->
+      <div class="filters" id="filters">
+        <button class="filter active" data-category="all" type="button">All</button>
+        <button class="filter" data-category="sweets" type="button">🍬 Sweets</button>
+        <button class="filter" data-category="chocolates" type="button">🍫 Chocolates</button>
+        <button class="filter" data-category="snacks" type="button">🥨 Snacks</button>
+        <button class="filter" data-category="cakes" type="button">🎂 Cakes</button>
+        <button class="filter" data-category="dry-fruits" type="button">🥜 Dry Fruits</button>
+        <button class="filter" data-category="special" type="button">⭐ Special</button>
+      </div>
+
+      <div class="menu-count" id="menuCount"></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- <..!..> HOW IT WORKS: Four simple ordering steps. <..!..> -->
+    <section class="how section" id="how">
+      <div class="container">
+        <div class="eyebrow">HOW IT WORKS</div>
+        <h2>Simple from order to pickup.</h2>
+
+        <div class="steps">
+          <div class="step">
+            <span>01</span>
+            <div><h3>Choose</h3><p>Pick your favourite mithai, snacks, chocolates or cakes.</p></div>
+          </div>
+          <div class="step">
+            <span>02</span>
+            <div><h3>Pre-order</h3><p>Enter your name, phone number and pickup time.</p></div>
+          </div>
+          <div class="step">
+            <span>03</span>
+            <div><h3>Collect</h3><p>Show your order ID or tell the shopkeeper your name.</p></div>
+          </div>
+          <div class="step">
+            <span>04</span>
+            <div><h3>Pay</h3><p>Pay at the shop when you collect your order.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <..!..> FOOTER: Change the tagline or copyright year here. <..!..> -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>🍬 Mithai Bhandar</strong>
+        <span>Fresh. Tasty. Ready for you.</span>
+      </div>
+      <small>© 2026 Mithai Bhandar</small>
+    </div>
+  </footer>
+
+  <!-- <..!..> CART OVERLAY AND CART PANEL. <..!..> -->
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+    <div class="panel-head">
+      <div>
+        <span class="eyebrow">YOUR ORDER</span>
+        <h2>Your Cart</h2>
+      </div>
+      <button class="icon-btn" id="closeCart" type="button" aria-label="Close cart">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-bottom">
+      <div class="total-row">
+        <span>Total</span>
+        <strong id="cartTotal">₹0</strong>
+      </div>
+      <button class="primary-btn full" id="checkoutBtn" type="button">Proceed to Pre-Order</button>
+    </div>
+  </aside>
+
+  <!-- <..!..> CHECKOUT MODAL: Customer details and improved order preview. <..!..> -->
+  <div class="modal" id="checkoutModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeCheckout" type="button" aria-label="Close checkout">×</button>
+
+      <div class="eyebrow">FINAL STEP</div>
+      <h2>Complete your pre-order</h2>
+      <p class="modal-note">Your order will be emailed to the shopkeeper. Payment is made at the shop during collection.</p>
+
+      <!-- <..!..> ORDER PREVIEW: This is filled automatically by script.js. <..!..> -->
+      <div class="order-preview" id="orderPreview"></div>
+
+      <!-- <..!..> CUSTOMER FORM: Edit labels/placeholders here if needed. <..!..> -->
+      <form id="orderForm">
+        <div class="form-grid">
+          <label>
+            Full name
+            <input id="customerName" name="customer_name" required placeholder="Enter your name">
+          </label>
+
+          <label>
+            Phone number
+            <input id="customerPhone" name="customer_phone" required type="tel" inputmode="tel" placeholder="Enter phone number">
+          </label>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            Pickup date
+            <input id="pickupDate" name="pickup_date" required type="date">
+          </label>
+
+          <label>
+            Pickup time
+            <div class="time-picker">
+              <select id="pickupHour" required aria-label="Hour">
+                <option value="" selected disabled>Hour</option>
+                <option value="01">01</option><option value="02">02</option><option value="03">03</option>
+                <option value="04">04</option><option value="05">05</option><option value="06">06</option>
+                <option value="07">07</option><option value="08">08</option><option value="09">09</option>
+                <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+              </select>
+              <span>:</span>
+              <select id="pickupMinute" required aria-label="Minute">
+                <option value="" selected disabled>Min</option>
+                <option value="00">00</option><option value="15">15</option>
+                <option value="30">30</option><option value="45">45</option>
+              </select>
+              <select id="pickupPeriod" required aria-label="AM or PM">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+            </div>
+            <input type="hidden" id="pickupTime" name="pickup_time">
+          </label>
+        </div>
+
+        <label>
+          Note for shopkeeper
+          <textarea id="customerNote" name="customer_note" rows="3" placeholder="Anything the shopkeeper should know?"></textarea>
+        </label>
+
+        <!-- <..!..> EMAILJS HIDDEN FIELDS: These values are sent to your EmailJS template. <..!..> -->
+        <input type="hidden" name="order_id" id="emailOrderId">
+        <input type="hidden" name="order_items" id="emailOrderItems">
+        <input type="hidden" name="order_total" id="emailOrderTotal">
+        <input type="hidden" name="payment_note" value="Customer will pay at the shop on collection.">
+
+        <button class="primary-btn full" type="submit" id="submitOrder">Place Pre-Order</button>
+        <p class="email-status" id="emailStatus" role="status"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- <..!..> SUCCESS MODAL: Shown after a successful EmailJS order. <..!..> -->
+  <div class="success-modal" id="successModal" aria-hidden="true">
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <div class="eyebrow">ORDER RECEIVED</div>
+      <h2>Pre-order placed!</h2>
+      <p>Your order has been sent to the shopkeeper.</p>
+
+      <div class="order-id-box">
+        <span>YOUR ORDER ID</span>
+        <strong id="successOrderId"></strong>
+      </div>
+
+      <p class="success-tip">Show this order ID or tell the shopkeeper your name when you come to collect your order.</p>
+      <button class="primary-btn full" id="doneBtn" type="button">Done</button>
+    </div>
+  </div>
+
+  <!-- <..!..> MAIN JAVASCRIPT. <..!..> -->
+  <script src="script.js"></script>
+</body>
+</html>
